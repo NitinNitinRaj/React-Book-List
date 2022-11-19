@@ -1,12 +1,11 @@
 import React, { useState } from "react"
-import uuid from "react-uuid"
 
 const BookCreate = ({ createBook }) => {
   const [title, setTitle] = useState("")
 
   const onFormSubmit = (e) => {
     e.preventDefault()
-    createBook({ id: uuid(), title })
+    createBook(title)
     setTitle("")
   }
 

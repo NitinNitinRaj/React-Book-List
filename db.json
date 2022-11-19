@@ -1,3 +1,20 @@
 {
-    "books": []
+  "books": [
+    {
+      "title": "Harry Potter",
+      "id": 1
+    },
+    {
+      "title": "Spider Man",
+      "id": 5
+    },
+    {
+      "title": "Game of Thrones",
+      "id": 6
+    },
+    {
+      "title": "Game of Thrones",
+      "id": 7
+    }
+  ]
 }

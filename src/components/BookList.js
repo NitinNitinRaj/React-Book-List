@@ -1,7 +1,9 @@
-import React from "react"
+import React, { useContext } from "react"
+import BookContext from "../context/books"
 import BookShow from "./BookShow"
 
 const BookList = ({ books, editBook, deleteBook }) => {
+  const { count, incrementCount } = useContext(BookContext)
   const renderedBooks = books.map((book) => {
     return (
       <BookShow
@@ -12,7 +14,19 @@ const BookList = ({ books, editBook, deleteBook }) => {
       />
     )
   })
-  return <div className="book-list">{renderedBooks}</div>
+  return (
+    <div className="book-list">
+      {count}
+      <button
+        onClick={() => {
+          incrementCount()
+        }}
+      >
+        Count
+      </button>
+      {renderedBooks}
+    </div>
+  )
 }
 
 export default BookList

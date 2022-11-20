@@ -1,12 +1,14 @@
 import React, { useState } from "react"
+import useBooksContext from "../hooks/use-books-context"
 import BookEdit from "./BookEdit"
 
-const BookShow = ({ book, editBook, deleteBook }) => {
+const BookShow = ({ book }) => {
   const [edit, setEdit] = useState(false)
 
-  const onSave = (title) => {
+  const { deleteBook } = useBooksContext()
+
+  const onSave = () => {
     setEdit(!edit)
-    editBook({ id: book.id, title: title })
   }
 
   const handleEditClick = () => {
@@ -18,7 +20,7 @@ const BookShow = ({ book, editBook, deleteBook }) => {
   }
   let content = <h3>{book.title}</h3>
   if (edit) {
-    content = <BookEdit editTitle={book.title} onSave={onSave} />
+    content = <BookEdit book={book} onSave={onSave} />
   }
   return (
     <div className="book-show">
